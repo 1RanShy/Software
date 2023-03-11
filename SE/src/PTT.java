@@ -40,7 +40,7 @@ public class PTT extends Staff{
         return this.ifAvailable;
     }
 
-    public void setter_ifAvailable(String trainingID){
+    public void setter_trainingID(String trainingID){
         this.trainingID = trainingID;
     }
 
