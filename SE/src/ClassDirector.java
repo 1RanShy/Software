@@ -1,3 +1,4 @@
+import java.io.PrintStream;
 import java.util.ArrayList;
 public class ClassDirector extends Staff{
 
@@ -16,6 +17,22 @@ public class ClassDirector extends Staff{
     public void adder_requirementList(Requirement requirement){
         this.requirementList.add(requirement);
     }
-    
 
+    public void	print(PrintStream ps) {
+        for (int j = 0; j < requirementList.size(); j++) {
+            ps.print(String.format("ID: %s", requirementList.get(j).getRequirementId()));
+            ps.print(String.format("CreatedDate: %s", requirementList.get(j).getCreatedDate()));
+            ps.print(String.format("CourseId: %s", requirementList.get(j).getCourseId()));
+            ps.print(String.format("PttId: %s", requirementList.get(j).getPttId()));
+            ps.print(String.format("AdminstratorId: %s", requirementList.get(j).getAdminstratorId()));
+            int stauts = requirementList.get(j).getReqStatus();
+            if (stauts == 0)
+                ps.print(String.format("Status: Incomplete"));
+            else if (stauts == 1)
+                ps.print(String.format("Status: Complete"));
+            else if (stauts == -1)
+                ps.print(String.format("Status: Need to be modified"));
+            ps.println();
+        }
+    }
 }

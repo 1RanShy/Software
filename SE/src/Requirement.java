@@ -14,7 +14,11 @@ public class Requirement {
     * 1代表已完成（安排好了教师）
     * -1代表需要修改（没有合适的老师）--->这时候应该需要修改courseId
      */
-    int reqStatus;//当前requirement的状态
+    private int reqStatus;//当前requirement的状态
+    
+    public	Requirement() {
+
+    }
 
     public	Requirement(String classDirectorId, String courseId) {
         this.requirementId = "1001"; //这里肯定要改！先让代码跑起来
@@ -34,9 +38,9 @@ public class Requirement {
     }
 
     //administrator设置Ptt
-    public void setPttId(String pttId, String adminstratorId) {
+    public void setPttId(String pttId) {
         this.pttId = pttId;
-        this.adminstratorId = adminstratorId;
+        //this.adminstratorId = adminstratorId;
         this.reqStatus = 1;
     }
 
@@ -59,5 +63,29 @@ public class Requirement {
         }else {
             System.out.println("Sorry, you have no permission to modify.");
         }
+    }
+
+    public String getRequirementId() {
+        return requirementId;
+    }
+
+    public String getCreatedDate() {
+        return createdDate;
+    }
+
+    public String getCourseId() {
+        return courseId;
+    }
+
+    public String getPttId() {
+        return pttId;
+    }
+
+    public String getAdminstratorId() {
+        return adminstratorId;
+    }
+
+    public int getReqStatus() {
+        return reqStatus;
     }
 }
